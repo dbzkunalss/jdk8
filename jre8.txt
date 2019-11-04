@@ -1,0 +1,1107 @@
+1.  An encoder requires a console based application that reads the integer and peforms the arithmetic right shift operation on it so that sign bit of entered number is preserved. The input to the application can be given either while launching console based application or in the interactive way.
+
+
+package PracticalExam.q1;
+
+public class MainActivity {
+   public static void main(String[] args) {
+       System.out.println("hello");
+   }
+}
+
+
+2.  The grading system describes how well students have achieved the learning objectives or goals established for a class of course of study. This system helps to categorize the students according to their grades. Design a system tht reads marks obtained by a student in a test of 100 marks and assign the grade as per the following criteria.
+
+
+
+
+
+
+
+
+
+3. Prime numbers are important because the security of many encryption algorithms are based on the fact that it is very fast to multiply two large numbers and get the result, while it is extremely computer-intensive to do th reverse. Enlist all the prime numbers between 1 and 1000 to create a base for cryptography.
+
+
+public class MainActivity {
+
+   static boolean isPrime(int num) {
+       for (int i = 2; i < num; i++){
+           if (num % i == 0) {
+               return false;
+           }
+       }
+       return true;
+   }
+   public static void main(String[] args) {
+
+       for (int x = 2; x <= 1000; x++){
+           if (isPrime(x)) {
+     	          System.out.print(x + " ");
+           }
+       }
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. The vendor provide a rubber material that provides the protection to the edges of circular object and paper material for protection of front and back of circular object. So a vendor needs a application to calculate the amount of rubber and paper material required for covering circular object. Create an applications with the methods to calculate area and circumference on provision of the radius of circular object to get the exact amount of rubber and paper.
+
+import java.io.*;
+import java.util.*;
+
+class calc {
+   float radius;
+   double area, circum;
+
+   void area() {
+       area = 3.14 * radius * radius;
+       System.out.println("area=" + area);
+   }
+
+   void circum() {
+       circum = 2 * 3.14 * radius;
+       System.out.println("circumference=" + circum);
+   }
+}
+
+class circle {
+   public static void main(String[] args) {
+       calc c1;
+       c1 = new calc();
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the radius:");
+       c1.radius = sc.nextFloat();
+       c1.area();
+       c1.circum();
+   }
+}
+
+
+5. An electrical engineer needs a complex number calculator for performing the operation of addition of alternating current represented using complex number. Create an application that takes 2 objects complex number as parameters and return the object which is addition of these 2 complex number.
+
+package PracticalExam.q1;
+
+import java.io.*;
+import java.util.*;
+
+class Aadd {
+   int x, y;
+
+   void read() {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("enter x component and y component:");
+       x = sc.nextInt();
+       y = sc.nextInt();
+   }
+
+   Aadd add(Aadd s1, Aadd s2) {
+       Aadd z = new Aadd();
+       z.x = s1.x + s2.x;
+       z.y = s1.y + s2.y;
+       return z;
+   }
+}
+
+class Current {
+   public static void main(String[] args) {
+       Aadd s1 = new Aadd();
+       Aadd s2 = new Aadd();
+       Aadd s3 = new Aadd();
+       s1.read();
+       s2.read();
+       s3 = s3.add(s1, s2);
+       System.out.println("Answer =" + s3.x+ "+" + "(" + s3.y + ")i" ) ;
+
+   }}
+6. A graphic designer paints area using the shape such as circle, rectangle and square and calculate the painting charges on the basis of area painted. Thus a designer need an application with area method for calculating area of different shape, for which dimensions will be provided.
+
+import java.util.*;
+
+class Area {
+   public double area(double r) {
+       return 3.14 * r * r;
+   }
+
+   public double area(float l, float b) {
+       return l * b;
+   }
+
+   public int area(int s) {
+       return s * s;
+   }
+}
+
+class Methodoverloading {
+
+   public static void main(String[] args) {
+
+       Scanner scan = new Scanner(System.in);
+
+       double r;
+       float l, b;
+       int s;
+
+       Area ob1 = new Area();
+
+       System.out.print("Enter the radius of circle: ");
+       r = scan.nextDouble();
+
+       System.out.print("Enter the length & breadth of rectangle: ");
+       l = scan.nextFloat();
+       b = scan.nextFloat();
+
+       System.out.print("Enter the side of square: ");
+       s = scan.nextInt();
+
+       System.out.println("\nArea of Circle: " + ob1.area(r));
+       System.out.println("Area of Rectangle: " + ob1.area(l, b));
+       System.out.println("Area of Square: " + ob1.area(s));
+   }
+}
+
+
+
+
+7. Programmers can define their own packages to bundle group of related classes/interfaces as per their requirement. Create your own package named as your “first name.lastname”and encapsulate the Product class in it for recording and displaying the product information. Also import the Product class to demostrate the use of packages.
+
+package packageName;
+
+import java.io.*;
+import java.util.*;
+
+public class product {
+   String name, expd, manfd;
+   int price;
+
+   public void getdetails() {
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Enter Product Name        :  ");
+       name = sc.next();
+       System.out.print("Enter Price               : ");
+       price = sc.nextInt();
+       System.out.print("Enter Data Of Manufacture :  ");
+       manfd = sc.next();
+       System.out.print("Enter Data Of EXpirey     :  ");
+       expd = sc.next();
+   }
+
+   public void putdetails() {
+       System.out.println();
+       System.out.println("Product Name              :  " + name);
+       System.out.println("Price                     :  " + price);
+       System.out.println("Expiry Date               :  " + expd);
+       System.out.println("Date Of Manufature        :  " + manfd);
+   }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.io.*;
+
+import packageName.*;
+
+public class PackageExample {
+   public static void main(String[] args) {
+       product a = new product();
+       a.getdetails();
+       a.putdetails();
+   }
+}
+
+
+8. 2D array is used in many real-life applications where we need to organize data in tabular/matrix format. Hence a matrix manipulator is required with functionality of reading, displaying and flipping data from the matrix. Generate the methods for each functionality mentioned above for creation the matrix manipulator. 
+
+import java.util.*;
+
+class matrixoperations {
+   public static void main(String[] args) {
+       int[][] a;
+       int[][] b;
+       int[][] sum;
+       int[][] t;
+       int r, c, i, j;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the number of rows and columnns");
+       r = sc.nextInt();
+       c = sc.nextInt();
+       a = new int[r][c];
+       b = new int[r][c];
+       System.out.println("\nEnter first matrix");
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               a[i][j] = sc.nextInt();
+           }
+       }
+       System.out.println("\nEnter second matrix");
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               b[i][j] = sc.nextInt();
+           }
+       }
+
+       sum = new int[r][c];
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               sum[i][j] = a[i][j] + b[i][j];
+           }
+       }
+       System.out.println("\nAddition of the two matrices are:");
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               System.out.print(sum[i][j] + "\t");
+           }
+           System.out.println();
+       }
+       t = new int[r][c];
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               t[i][j] = sum[j][i];
+           }
+       }
+       System.out.println("\nThe transpose of the matrix is:");
+       for (i = 0; i < r; i++) {
+           for (j = 0; j < c; j++) {
+               System.out.print(t[i][j] + "\t");
+           }
+           System.out.println();
+       }
+   }
+}
+
+
+
+9. A character sequence is to be read as an input and result need to declared as “yes” or “no” by investigating the fact that traversing the characters sequence backwards and forwards results in same sequence. Write a program for the same using StringBuffer.
+
+import java.util.*;
+
+class Palindrome {
+
+   public static void main(String[] s) {
+       String str = "";
+       String rev = "";
+       StringBuffer str1 = new StringBuffer();
+       Scanner sc = new Scanner(System.in);
+       System.out.println("enter a string");
+       str = sc.nextLine();
+       str1.append(str);
+       str1.reverse();
+       rev = str1.toString();
+       if (str.equalsIgnoreCase(rev)) {
+           System.out.println("Yes! " + str1 + " has an equal reverse");
+       } else {
+           System.out.println("No! " + str1 + " has an unequal reverse");
+       }
+   }
+
+}
+
+
+
+10. Admission section needs an application for storing the student information whenever new student come for admission. Information such as name, roll no, age, contact no. etc. is required to be stored for each student and at the end of the day the list need to be displayed on screen for verification. Make use of the vector class method for adding new student record.
+
+import java.io.*;
+import java.util.*;
+
+class Data {
+   int Roll, Age;
+   String Name;
+
+   public void SetRoll(int roll) {
+       this.Roll = roll;
+   }
+
+   public int GetRoll() {
+       return this.Roll;
+   }
+
+   public String toString2() {
+       return "" + Roll;
+   }
+
+   public void SetAge(int age) {
+       this.Age = age;
+   }
+
+   public int GetAge() {
+       return this.Age;
+   }
+
+   public String toString3() {
+       return "" + Age;
+   }
+
+   public void SetName(String name) {
+       this.Name = name;
+   }
+
+   public String GetName() {
+       return this.Name;
+   }
+
+   public String toString() {
+       return "" + Name;
+   }
+}
+
+class Vectors {
+   Vector<Data> list = new Vector<Data>();
+
+   public void add() {
+       Data data = new Data();
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Enter Name: ");
+       data.SetName(sc.next());
+       System.out.print("Enter Roll Number: ");
+       data.SetRoll(sc.nextInt());
+       System.out.print("Enter Age: ");
+       data.SetAge(sc.nextInt());
+       list.addElement(data);
+   }
+
+   public void view() {
+       System.out.println("`````````````DISPLAY`````````````");
+       for (int i = 0; i < list.size(); i++) {
+           System.out.println("Student " + (i + 1));
+           System.out.println("Name : " + list.get(i).toString());
+           System.out.println("Roll Number : " + list.get(i).toString2());
+           System.out.println("Age : " + list.get(i).toString3());
+       }
+       System.out.println("`````````````````````````````````");
+   }
+}
+
+class VectorExample {
+   public static void main(String[] args) {
+       int ch;
+       Scanner sc = new Scanner(System.in);
+       Vectors st = new Vectors();
+       System.out.println("`````````````WELCOME`````````````");
+       System.out.println("1: Add a Student");
+       System.out.println("2: Display and Exit");
+       do {
+           System.out.println("`````````````````````````````````");
+           System.out.println("Enter choice : ");
+           ch = sc.nextInt();
+           switch (ch) {
+               case 1:
+                   st.add();
+                   break;
+               case 2:
+                   st.view();
+                   break;
+               default:
+                   System.out.println("Enter a valid choice ");
+                   break;
+           }
+       } while (ch != 2);
+   }
+}
+
+
+11. Inheritance provides code reusability. Create a multilevel inheritance to calculate volume of sphere which makes use of the base class which calculates the area of a circle and which in turn uses the radius provided by its base class.
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class Data {
+   Scanner sc = new Scanner(System.in);
+   double r;
+
+   void read() {
+       System.out.println("Enter Radius");
+       r = sc.nextDouble();
+   }
+}
+
+class Area extends Data {
+   double area;
+
+   void calculate() {
+       area = 3.14 * r * r;
+   }
+
+   void display() {
+       System.out.println("Area is" + area);
+   }
+}
+
+class Volume extends Area {
+   double vol;
+
+   void volume() {
+       vol = (area * 4 * r) / 3;
+   }
+
+   void display1() {
+       System.out.println("Volume is " + vol);
+   }
+}
+
+class MultipleInheritance {
+   public static void main(String[] args) {
+       Volume c = new Volume();
+       c.read();
+       c.calculate();
+       c.display();
+       c.volume();
+       c.display1();
+   }
+}
+
+
+12. The purpose of an abstract class is to define some common behavior that can be inherited by multiple subclasses, without implementing the entire class. Create an abstract class with common behaviour of different shapes. 
+
+import java.io.*;
+import java.util.*;
+
+abstract class Base {
+   protected float r, l, b, area;
+
+   public abstract void calculate();
+
+   public void display() {
+       System.out.println("Area=" + area);
+   }
+}
+
+===============================================================
+class Circle extends Base {
+   public void read(float x) {
+       r = x;
+   }
+
+   public void calculate() {
+       area = 3.14f * r * r;
+   }
+}
+===============================================================
+class Rectangle extends Base {
+   public void read(float x, float y) {
+       l = x;
+       b = y;
+   }
+
+   public void calculate() {
+       area = l * b;
+   }
+}
+
+===============================================================
+class Triangle extends Base {
+   public void read(float x, float y) {
+       l = x;
+       b = y;
+   }
+
+   public void calculate() {
+       area = 0.5f * l * b;
+   }
+}
+
+===============================================================
+class AbstractExample {
+   public static void main(String[] args) {
+       float x, y;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Circle:");
+       System.out.println("Enter the radius");
+       x = sc.nextFloat();
+       Circle s = new Circle();
+       s.read(x);
+       s.calculate();
+       s.display();
+       System.out.println("Rectangle:");
+       System.out.println("Enter length and breadth:");
+       x = sc.nextFloat();
+       y = sc.nextFloat();
+       Rectangle h = new Rectangle();
+       h.read(x, y);
+       h.calculate();
+       h.display();
+       System.out.println("Triangle:");
+       System.out.println("Enter height and breadth:");
+       x = sc.nextFloat();
+       y = sc.nextFloat();
+       Triangle t = new Triangle();
+       t.read(x, y);
+       t.calculate();
+       t.display();
+   }
+}
+
+
+13. Consider a university where students who participate in the National Games or Olympics are given some grace marks. The grace marks provided are fixed and same for every student. Create an application that keeps student’s academic marks and Sports grace marks separate and generate total of marks considering academics and sports both. (Hint: Make use of Interface)
+
+package exp13.applications;
+
+public class Result extends Test implements Sports{
+   public float total;
+
+   @Override
+   public void printscore() {
+       System.out.println("Score = " + score);
+   }
+
+   public  void display(){
+       total += sem1 + sem2 + score;
+       printnumber();
+       printmarks();
+       printscore();
+       System.out.println("Total marks = " + total);
+   }
+}
+===============================================================
+
+package exp13.applications;
+
+public interface Sports {
+   float score = 420;
+   void printscore();
+
+}
+===============================================================
+
+package exp13.applications;
+
+public class Student {
+   public int roll;
+
+   public void getnumber(int r) {
+       roll = r;
+   }
+
+   public void printnumber(){
+       System.out.println("Roll Number = " + roll);
+   }
+
+}
+===============================================================
+package exp13.applications;
+
+public class Test extends  Student{
+   public float sem1, sem2;
+
+   public void getmarks(float s1, float s2){
+       sem1 = s1;
+       sem2 = s2;
+   }
+
+   public void printmarks() {
+       System.out.printf("Semester 1: %.2f\nSemester 2: %.2f\n", sem1, sem2);
+   }
+}
+
+
+
+===============================================================
+
+
+
+
+package exp13;
+
+import exp13.applications.Result;
+
+public class MainActivity {
+   public static void main(String[] args) {
+       Result res = new Result();
+       res.getnumber(69420);
+       res.getmarks(69, 69);
+       res.display();
+   }
+}
+
+14. Through Custom exception user can raise application-specific error code. You are required to calculate a square of even number provided as input by user. However if a user provides an odd number as input, then an exception must be thrown explicitly with message indicating the input number must be even number. 
+
+import java.io.*;
+import java.util.*;
+
+class CustomException extends Exception {
+   CustomException(String message) {
+       super(message);
+   }
+}
+
+class ExceptionExample {
+   public static void validate(int num) throws CustomException {
+       if (num % 2 == 1)
+           throw new CustomException("Not an Even Number");
+       else
+           System.out.println("Square of " + num + " is " + num * num);
+   }
+
+   public static void main(String[] args) {
+       int num;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter an Even Number ");
+       num = sc.nextInt();
+       try {
+           validate(num);
+       } catch (Exception m) {
+           System.out.println("Exception occured: " + m);
+       }
+
+   }
+}
+
+
+
+15. Divide your program into two parts: One to read a number and the other to calculate its square. Provide a simultaneous execution of both parts of a program to maximum utilize the CPU time.
+
+import java.util.*;
+import java.io.*;
+
+class Num {
+   public static int a;
+}
+
+class TakeInput implements Runnable {
+   public void run() {
+       Num ob = new Num();
+       System.out.println("Enter a no to calculate its Square : ");
+       Scanner sc = new Scanner(System.in);
+       Num.a = sc.nextInt();
+   }
+}
+
+class GiveSquare implements Runnable {
+   public void run() {
+       Num ob = new Num();
+       int num = Num.a;
+       System.out.println("The Square of the number is : " + num * num);
+   }
+}
+
+class MultiThreadingExample {
+   public static void main(String[] args) {
+       int no;
+       TakeInput t1 = new TakeInput();
+       Thread T1 = new Thread(t1);
+       GiveSquare t2 = new GiveSquare();
+       Thread T2 = new Thread(t2);
+       t1.run();
+       t2.run();
+   }
+}
+
+
+16. Create a GUI application that runs in a browser and displays the name and roll no of student provided as specific attribute for displaying on browser.
+
+import java.awt.*;
+import java.applet.*;
+
+public class GuiBrowser extends Applet {
+   TextField t1, t2;
+
+   public void init() {
+       t1 = new TextField(10);
+       t2 = new TextField(10);
+
+       add(t1);
+       add(t2);
+
+       t1.setText("");
+       t2.setText("");
+   }
+
+   public void paint(Graphics g) {
+
+       String str1, str2;
+
+       g.drawString("Enter Name and Roll No. in above Boxes: ", 50, 50);
+       str1 = t1.getText();
+       str2 = t2.getText();
+
+
+       g.drawString("Name : ", 50, 100);
+       g.drawString(str1, 100, 100);
+       g.drawString("Roll No : ", 50, 125);
+       g.drawString(str2, 100, 125);
+   }
+}
+
+
+17. Create a browser based GUI window for displaying static or animated object using different shapes and colours.
+
+import java.applet.*;
+import java.awt.*;
+
+public class AppletShapes extends Applet {
+   public void paint(Graphics g) {
+       g.setColor(Color.MAGENTA);
+       g.drawLine(30, 300, 200, 10);
+
+       g.setColor(Color.PINK);
+       g.drawOval(250, 50, 100, 100);
+       g.setColor(Color.BLUE);
+       g.drawRect(400, 50, 200, 100);
+   }
+}
+
+
+
+
+
+
+
+/*
+<HTML>
+<HEAD>
+  <TITLE>Shapes</TITLE>
+</HEAD>
+<BODY>
+  <APPLET Code="Exp17.class" Width=400 Height=300>
+  </APPLET>
+</BODY>
+</HTML>
+*/
+
+
+18. You need to create an interactive GUI based form for reading student information such as name, date of birth, gender, department, contact no., address etc. using AWT components and handle events such as mouse movement or button click to store information.
+
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+public class Exp18 extends Applet implements ActionListener {
+   int s_age;
+   String gender_male, gender_female = "";
+   String s_sex, s_address, s_department;
+   Button b1 = new Button("Print");
+   Button b2 = new Button("Clear");
+   Label l1 = new Label("Name :", Label.LEFT);
+   Label l2 = new Label("Age :", Label.LEFT);
+   Label l3 = new Label("Sex(M/F):", Label.LEFT);
+   Label l4 = new Label("Address:", Label.LEFT);
+   Label l5 = new Label("Department:", Label.LEFT);
+   Label l6 = new Label("Contact No:", Label.LEFT);
+   Label l7 = new Label("DOB :", Label.LEFT);
+   TextField t1 = new TextField();
+   TextField k1 = new TextField();
+   TextField k2 = new TextField();
+   CheckboxGroup cbg = new CheckboxGroup();
+   Checkbox ck1 = new Checkbox("Male", false, cbg);
+   Checkbox ck2 = new Checkbox("Female", false, cbg);
+   TextArea t2 = new TextArea("", 200, 150);
+   TextArea t3 = new TextArea("");
+   Choice department = new Choice();
+   Choice age = new Choice();
+
+   {
+       setForeground(Color.black);
+       setLayout(null);
+       add(l1);
+       add(l2);
+       add(l3);
+       add(l4);
+       add(l5);
+       add(l6);
+       add(l7);
+       add(t1);
+       add(k1);
+       add(k2);
+       add(t2);
+       add(t3);
+       add(b1);
+       add(b2);
+       b1.addActionListener(this);
+       b2.addActionListener(this);
+       add(ck1);
+       add(ck2);
+       add(department);
+       add(age);
+       department.add("Select");
+       department.add("COMPS");
+       department.add("IT");
+       department.add("EXTC");
+       department.add("INSTRU");
+       department.add("CIVIL");
+       age.add("Select");
+       age.add("17");
+       age.add("18");
+       age.add("19");
+       age.add("20");
+       age.add("21");
+       age.add("22");
+       age.add("23");
+       age.add("24");
+       l1.setBounds(95, 145, 100, 20);
+       l2.setBounds(95, 200, 100, 20);
+       l3.setBounds(95, 250, 100, 20);
+       l4.setBounds(95, 340, 100, 20);
+       l5.setBounds(95, 420, 100, 20);
+       l6.setBounds(95, 460, 100, 20);
+       l7.setBounds(95, 500, 100, 20);
+       t1.setBounds(200, 144, 180, 30);
+       k1.setBounds(200, 460, 180, 30);
+       k2.setBounds(200, 500, 180, 30);
+       age.setBounds(200, 200, 180, 70);
+       ck1.setBounds(200, 240, 70, 45);
+       ck2.setBounds(270, 240, 70, 45);
+       department.setBounds(200, 420, 180, 40);
+       t2.setBounds(200, 345, 180, 60);
+       t3.setBounds(459, 135, 390, 460);
+       b1.setBounds(160, 565, 70, 30);
+       b2.setBounds(250, 565, 70, 30);
+   }
+
+   public void paint(Graphics g) {
+       g.setFont(new Font("Calibari", Font.BOLD, 18));
+       g.setColor(Color.blue);
+       g.drawString("Student Information", 320, 80);
+       g.drawRect(60, 115, 365, 500);
+       g.drawRect(435, 115, 440, 500);
+   }
+
+   public void actionPerformed(ActionEvent ae) {
+       if (ae.getSource() == b1) {
+           String name = t1.getText();
+           String contact = k1.getText();
+           String dob = k2.getText();
+           s_address = t2.getText();
+           int i = age.getSelectedIndex();
+           int j = department.getSelectedIndex();
+           switch (i) {
+               case 1:
+                   s_age = 17;
+                   break;
+               case 2:
+                   s_age = 18;
+                   break;
+               case 3:
+                   s_age = 19;
+                   break;
+               case 4:
+                   s_age = 20;
+                   break;
+               case 5:
+                   s_age = 21;
+                   break;
+               case 6:
+                   s_age = 22;
+                   break;
+               case 7:
+                   s_age = 23;
+                   break;
+           }
+           if (ck1.getState()) {
+               s_sex = "Male";
+           }
+           if (ck2.getState()) {
+               s_sex = "FeMale";
+           }
+           switch (j) {
+               case 1:
+                   s_department = "COMPS";
+                   break;
+               case 2:
+                   s_department = "IT";
+                   break;
+               case 3:
+                   s_department = "EXTC";
+                   break;
+               case 4:
+                   s_department = "INSTRU";
+                   break;
+               case 5:
+                   s_department = "CIVIL";
+                   break;
+           }
+           t3.setText("\n " + " Name\t :" + name + "\n\n" + " Age\t :" + s_age + "\n\n" + " Sex\t :" + s_sex +
+                   "\n\n  Address :" + s_address +
+                   "\n\n Department :" + s_department + "\n\n Contact No :" + contact + "\n\n DOB\t :" + dob);
+       }
+       if (ae.getSource() == b2) {
+           t1.setText("");
+           t2.setText("");
+           t3.setText("");
+           k1.setText("");
+           k2.setText("");
+       }
+   }
+}
+
+
+/*
+HTML>
+<HEAD>
+	<TITLE>Student Information</TITLE>
+</HEAD>
+<BODY>
+	<APPLET Code="Exp18.class" Width=930 Height=660>
+	</APPLET>
+</BODY>    
+</HTML>*/
+
+
+
+19. A student will not be allowed to sit in exam if his/her attendance is less than 75%, and repeat semester if attendance is less than 50%. Take following input from user 1. Number of classes held 2. Number of classes attended. And print a) percentage of class attended b) Is student is allowed to sit in exam or not, or repeat semester.
+
+import java.io.*;
+import java.util.*;
+
+class Attendance {
+   int attended, total;
+   float percentage;
+
+   void perc() {
+       percentage = attended * 100 / total;
+       System.out.println("Your attendance is " + percentage + "%");
+   }
+
+   void result() {
+       if (percentage < 50)
+           System.out.println("You are NOT allowed to sit in exam AND have to REPEAT the semester");
+       else if (percentage < 75)
+           System.out.println("You are NOT allowed to sit in exam");
+       else
+           System.out.println("You are ALLOWED to sit in exam");
+   }
+}
+
+class  AttendanceExample {
+   public static void main(String[] args) {
+       attendance stu = new Attendance();
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter number of days Held");
+       stu.total = sc.nextInt();
+       System.out.println("Enter number of days attended");
+       stu.attended = sc.nextInt();
+       stu.perc();
+       stu.result();
+   }
+}
+
+
+
+20. WAP to check whether 2 matrices are symmetric or not.
+
+package PracticalExam.q1;
+
+import java.util.*;
+
+class SymMatrix {
+   public static void main(String[] args) {
+       int[][] a;
+       int[][] t;
+       int n, i, j, flag = 0;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the order of matrix");
+       n = sc.nextInt();
+       a = new int[n][n];
+       t = new int[n][n];
+       System.out.println("\nEnter matrix");
+       for (i = 0; i < n; i++) {
+           for (j = 0; j < n; j++) {
+               System.out.print("a[" + i + "][" + j + "]=");
+               a[i][j] = sc.nextInt();
+           }
+       }
+
+       for (i = 0; i < n; i++) {
+           for (j = 0; j < n; j++) {
+               t[i][j] = a[j][i];
+               if (t[i][j] != a[i][j])
+                   flag = 1;
+           }
+       }
+       System.out.println("\nThe transpose of the matrix is:");
+       for (i = 0; i < n; i++) {
+           for (j = 0; j < n; j++) {
+               System.out.print(t[i][j] + "\t");
+           }
+           System.out.println();
+       }
+       if (flag == 0)
+           System.out.println("The given matrix is SYMMETRIC");
+       else
+           System.out.println("The given matrix is NOT Symmetric");
+   }
+}
+
+
+21. Define method to calculate factorial of a number in a package and use that to calculate permutation and combination.
+
+import java.io.*;
+import java.util.*;
+
+import factorial.*;
+
+public class PermComb {
+   public static void main(String[] args) {
+       int n, r;
+       float perm, comb;
+       Scanner sc = new Scanner(System.in);
+       Method obj1 = new Method();
+       Method obj2 = new Method();
+       Method obj3 = new Method();
+       System.out.println("Enter values of n and r");
+       n = sc.nextInt();
+       r = sc.nextInt();
+       perm = obj1.fact(n) / obj3.fact(n - r);
+       comb = perm / obj2.fact(r);
+       System.out.println("Permutation=" + perm);
+       System.out.println("Combination=" + comb);
+   }
+}
+
+
+22. A company decided to give bonus of 5% to employee if his/her year of service is more than 5 years. Ask user for their salary and years of service, and print the net bonus amount
+
+import java.io.*;
+import java.util.*;
+
+class ScamCompany {
+   public static void main(String[] args) {
+       int years, salary, bonus = 0;
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Please Enter your current salary :");
+       salary = sc.nextInt();
+       System.out.print("Please Enter your years of service :");
+       years = sc.nextInt();
+       if (years > 5)
+           bonus = salary * 5 / 100;
+       System.out.println("Your Bonus :" + bonus);
+   }
+
+
+
+
+23. A shop will give discount of 10% if the cost of purchased quantity is more than 1000. a) Ask user for quantity b) Suppose, one unit will cost 100. c) Judge and print total cost for user.
+
+
+import java.io.*;
+import java.util.*;
+
+class Discount {
+   public static void main(String[] args) {
+       int quantity, discount = 0, rate = 100, cost;
+       Scanner sc = new Scanner(System.in);
+       System.out.print("How much items do you require :");
+       quantity = sc.nextInt();
+       if (quantity > 1000)
+           discount = quantity * rate * 5 / 100;
+       cost = quantity * rate - discount;
+       System.out.println("Your Discount :" + discount);
+       System.out.println("Your final cost :" + cost);
+   }
+}
+
+
+
+
+
